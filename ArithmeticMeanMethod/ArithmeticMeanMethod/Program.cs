@@ -1,12 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-static double ArithmeticMean(double a, double b, double c)
-{
-    double AMresult = (a + b + c) / 3;
+using AMLib;
 
-    return AMresult;
-}
-double firstValue, secondValue, thirdValue, valueAM;
+double firstValue, secondValue, thirdValue;
 
 Console.Write("Введите первое число: ");
 
@@ -20,6 +16,8 @@ Console.Write("Введите третье число: ");
 
 thirdValue = double.Parse(Console.ReadLine());
 
-valueAM = ArithmeticMean(firstValue, secondValue, thirdValue);
+double amResult = AMLib.ArMean.ArithmeticMean(firstValue, secondValue, thirdValue);
 
-Console.WriteLine("Среднее арифметическое данных чисел: " + valueAM);
+
+Console.WriteLine("Среднее арифметическое данных чисел: " + amResult);
+
