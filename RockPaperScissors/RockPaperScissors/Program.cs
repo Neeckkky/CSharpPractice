@@ -6,67 +6,70 @@ while (true)
 {
     Random rnd = new Random();
     int RndRPS = rnd.Next(3);
-    PlayerChoice ComputerChoice = (PlayerChoice)Enum.GetValues(typeof(PlayerChoice)).GetValue(RndRPS);
 
-    
-
-
+    PlayerChoice computerChoice = (PlayerChoice)Enum.GetValues(typeof(PlayerChoice)).GetValue(RndRPS);
 
 
     Console.Write("Введите число: ");
     PlayerChoice userChoice = (PlayerChoice)int.Parse(Console.ReadLine());
     Console.WriteLine("Пользователь ввел: " + userChoice);
-    Console.WriteLine("Компьютер ввел: " + ComputerChoice);
+    Console.WriteLine("Компьютер ввел: " + computerChoice);
 
 
-    if (userChoice == PlayerChoice.ROCK && ComputerChoice == PlayerChoice.PAPER)
+    bool? CheckPlayerWin (PlayerChoice userChoice, PlayerChoice computerChoice)
     {
-        Console.WriteLine("Победил компьютер!");
+        bool CheckPlayerWin = true & false;
+        return CheckPlayerWin;
+        {
+            if (userChoice == PlayerChoice.ROCK && computerChoice == PlayerChoice.PAPER)
+            {
+                return false;
+            }
+            else if (userChoice == PlayerChoice.ROCK && computerChoice == PlayerChoice.SCISSORS)
+            {
+                return true;
+            }
+            else if (userChoice == PlayerChoice.PAPER && computerChoice == PlayerChoice.ROCK)
+            {
+                return true;
+            }
+
+            else if (userChoice == PlayerChoice.PAPER && computerChoice == PlayerChoice.SCISSORS)
+            {
+                return false;
+            }
+
+            else if (userChoice == PlayerChoice.SCISSORS && computerChoice == PlayerChoice.ROCK)
+            {
+                return true;
+            }
+
+            else if (userChoice == PlayerChoice.SCISSORS && computerChoice == PlayerChoice.PAPER)
+            {
+                return true;
+            }
+
+            else if (userChoice == computerChoice)
+            {
+                return null;
+            }
+
+            if (CheckPlayerWin = true)
+                Console.WriteLine("Победил игрок!");
+
+            else if (CheckPlayerWin = false)
+                Console.WriteLine("Победил компьютер");
+
+            else if (CheckPlayerWin == null)
+                Console.WriteLine("Ничья!");
+
+        }
     }
 
-    else if (userChoice == PlayerChoice.ROCK && ComputerChoice == PlayerChoice.SCISSORS)
-    {
-        Console.WriteLine("Победил игрок!");
-    }
+    Console.WriteLine(CheckPlayerWin);
 
-
-    else if (userChoice == PlayerChoice.PAPER && ComputerChoice == PlayerChoice.ROCK)
-    {
-        Console.WriteLine("Победил игрок!");
-    }
-
-    else if (userChoice == PlayerChoice.PAPER && ComputerChoice == PlayerChoice.SCISSORS)
-    {
-        Console.WriteLine("Победил компьютер!");
-    }
-
-    else if (userChoice == PlayerChoice.SCISSORS && ComputerChoice == PlayerChoice.ROCK)
-    {
-        Console.WriteLine("Победил компьютер!");
-    }
-
-    else if (userChoice == PlayerChoice.SCISSORS && ComputerChoice == PlayerChoice.PAPER)
-    {
-        Console.WriteLine("Победил игрок!");
-    }
-
-    else if (userChoice == PlayerChoice.ROCK && ComputerChoice == PlayerChoice.ROCK)
-    {
-        Console.WriteLine("Ничья!");
-    }
-
-    else if (userChoice == PlayerChoice.PAPER && ComputerChoice == PlayerChoice.PAPER)
-    {
-        Console.WriteLine("Ничья!");
-    }
-
-    else if (userChoice == PlayerChoice.SCISSORS && ComputerChoice == PlayerChoice.SCISSORS)
-    {
-        Console.WriteLine("Ничья!");
-    }
 }
-
-
+    
 enum PlayerChoice
 { ROCK, PAPER, SCISSORS }
 
