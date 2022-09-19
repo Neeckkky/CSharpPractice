@@ -18,10 +18,11 @@ while (true)
 
     bool? CheckPlayerWin (PlayerChoice userChoice, PlayerChoice computerChoice)
     {
-        bool CheckPlayerWin = true & false;
+        bool? CheckPlayerWin = true & false;
+
         return CheckPlayerWin;
-        {
-            if (userChoice == PlayerChoice.ROCK && computerChoice == PlayerChoice.PAPER)
+
+        if (userChoice == PlayerChoice.ROCK && computerChoice == PlayerChoice.PAPER)
             {
                 return false;
             }
@@ -54,18 +55,20 @@ while (true)
                 return null;
             }
 
-            if (CheckPlayerWin = true)
+            if (CheckPlayerWin.HasValue)
                 Console.WriteLine("Победил игрок!");
 
-            else if (CheckPlayerWin = false)
+            else if (CheckPlayerWin.Value)
                 Console.WriteLine("Победил компьютер");
 
-            else if (CheckPlayerWin == null)
+            else 
                 Console.WriteLine("Ничья!");
+            CheckPlayerWin.GetValueOrDefault();
+       
 
-        }
+       
+        
     }
-
     Console.WriteLine(CheckPlayerWin);
 
 }
